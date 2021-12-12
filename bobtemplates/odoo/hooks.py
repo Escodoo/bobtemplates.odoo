@@ -183,11 +183,40 @@ def post_render_addon(configurator):
         _delete_file(
             configurator, variables["addon.name"] + "/static/description/icon.png.oca"
         )
-
     else:
         _delete_file(configurator, variables["addon.name"] + "/README.rst.oca")
         _delete_file(
             configurator, variables["addon.name"] + "/static/description/icon.png.oca"
+        )
+        _delete_file(configurator, variables["addon.name"] + "/README.rst.escodoo")
+        _delete_file(
+            configurator, variables["addon.name"] + "/static/description/icon.png.escodoo"
+        )
+    if variables["addon.oca"] or variables["addon.escodoo"]:
+        _rm_suffix(
+            ".escodoo",
+            configurator,
+            variables["addon.name"] + "/readme/DESCRIPTION.rst.escodoo",
+        )
+        _rm_suffix(
+            ".escodoo",
+            configurator,
+            variables["addon.name"] + "/readme/USAGE.rst.escodoo",
+        )
+        _rm_suffix(
+            ".escodoo",
+            configurator,
+            variables["addon.name"] + "/readme/CONTRIBUTORS.rst.escodoo",
+        )
+    else:
+        _delete_file(
+            configurator, variables["addon.name"] + "/readme/DESCRIPTION.rst.escodoo"
+        )
+        _delete_file(
+            configurator, variables["addon.name"] + "/readme/USAGE.rst.escodoo"
+        )
+        _delete_file(
+            configurator, variables["addon.name"] + "/readme/CONTRIBUTORS.rst.escodoo"
         )
     version = variables["addon.version"]
     if parse_version(version) >= parse_version("10.0"):
@@ -198,6 +227,7 @@ def post_render_addon(configurator):
             configurator.target_directory, variables["addon.name"] + "/__manifest__.py"
         )
         os.rename(manifest_file, manifest_new_file)
+
     # show message if any
     show_message(configurator)
 
