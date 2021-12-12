@@ -8,6 +8,9 @@
 {{% if addon.oca %}}
     'summary': """
         {{{ addon.summary }}}""",
+{{% elif addon.escodoo %}}
+    'summary': """
+        {{{ addon.summary }}}""",
 {{% else %}}
     'description': """
         {{{ addon.summary }}}""",

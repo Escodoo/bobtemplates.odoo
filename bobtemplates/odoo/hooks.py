@@ -168,6 +168,22 @@ def post_render_addon(configurator):
             configurator,
             variables["addon.name"] + "/static/description/icon.png.oca",
         )
+        _delete_file(configurator, variables["addon.name"] + "/README.rst.escodoo")
+        _delete_file(
+            configurator, variables["addon.name"] + "/static/description/icon.png.escodoo"
+        )
+    elif variables["addon.escodoo"]:
+        _rm_suffix(".escodoo", configurator, variables["addon.name"] + "/README.rst.escodoo")
+        _rm_suffix(
+            ".escodoo",
+            configurator,
+            variables["addon.name"] + "/static/description/icon.png.escodoo",
+        )
+        _delete_file(configurator, variables["addon.name"] + "/README.rst.oca")
+        _delete_file(
+            configurator, variables["addon.name"] + "/static/description/icon.png.oca"
+        )
+
     else:
         _delete_file(configurator, variables["addon.name"] + "/README.rst.oca")
         _delete_file(
