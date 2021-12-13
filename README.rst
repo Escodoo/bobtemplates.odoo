@@ -32,7 +32,7 @@ Install
 
   .. code:: shell
 
-    pip install bobtemplates.odoo
+    pip install -e git+https://github.com/Escodoo/bobtemplates.odoo.git#egg=bobtemplates.odoo
 
 Quickstart
 ~~~~~~~~~~
