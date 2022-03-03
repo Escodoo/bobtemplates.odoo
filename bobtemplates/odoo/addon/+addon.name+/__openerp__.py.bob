@@ -1,11 +1,11 @@
 {{% if odoo.version < 11 %}}# -*- coding: utf-8 -*-
 {{% endif -%}}
 # Copyright {{{ copyright.year }}} {{{ copyright.name }}}
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     'name': '{{{ addon.name_camelwords }}}',
-{{% if addon.oca %}}
+{{% if addon.oca or addon.escodoo%}}
     'summary': """
         {{{ addon.summary }}}""",
 {{% else %}}
